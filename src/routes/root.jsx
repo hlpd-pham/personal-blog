@@ -1,4 +1,5 @@
-import { Link, Outlet, useLoaderData } from "react-router-dom";
+import "./root.css";
+import { Outlet, useLoaderData } from "react-router-dom";
 import { blogs } from "../blog-data.js";
 
 export function blogsLoader() {
@@ -11,13 +12,15 @@ function Root() {
     <>
       <nav>
         {blogs.length ? (
-          <ul>
+          <div>
             {blogs.map((blog) => (
-              <li key={blog.id}>
-                <Link to={`blogs/${blog.id}`}>{blog.title}</Link>
-              </li>
+              <div key={blog.id} className="card">
+                <div className="card-title">{blog.title}</div>
+                <div className="card-summary">{blog.description}</div>
+                <button className="card-button">Read More</button>
+              </div>
             ))}
-          </ul>
+          </div>
         ) : (
           <p>
             <i>No Blogs</i>

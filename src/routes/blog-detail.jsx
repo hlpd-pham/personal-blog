@@ -1,3 +1,4 @@
+import "./blog-detail.css";
 import { useLoaderData } from "react-router-dom";
 import { blogs } from "../blog-data.js";
 
@@ -9,8 +10,7 @@ export default function Blog() {
   const blog = useLoaderData();
   return (
     <div>
-      <h1>{blog.title}</h1>
-      <p>{blog.description}</p>
+      {blog.title} {blog.description}
     </div>
   );
 }
